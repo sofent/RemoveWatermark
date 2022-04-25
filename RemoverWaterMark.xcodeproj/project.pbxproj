@@ -17,6 +17,19 @@
 		330B62832814F5D900AE9D81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B62592814F5D800AE9D81 /* ContentView.swift */; };
 		330B62842814F5D900AE9D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330B625A2814F5D900AE9D81 /* Assets.xcassets */; };
 		330B62852814F5D900AE9D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330B625A2814F5D900AE9D81 /* Assets.xcassets */; };
+		330B62952814F8D600AE9D81 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B62942814F8D600AE9D81 /* ImagePickerView.swift */; };
+		330B62962814F8D600AE9D81 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B62942814F8D600AE9D81 /* ImagePickerView.swift */; };
+		330B629828151E3400AE9D81 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B629728151E3400AE9D81 /* Request.swift */; };
+		330B629928151E3400AE9D81 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B629728151E3400AE9D81 /* Request.swift */; };
+		336179412815433900221097 /* ReCAPTCHAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336179402815433900221097 /* ReCAPTCHAViewController.swift */; };
+		336179422815433900221097 /* ReCAPTCHAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336179402815433900221097 /* ReCAPTCHAViewController.swift */; };
+		336179442815438500221097 /* ReCAPTCHAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336179432815438500221097 /* ReCAPTCHAViewModel.swift */; };
+		336179452815438500221097 /* ReCAPTCHAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336179432815438500221097 /* ReCAPTCHAViewModel.swift */; };
+		336179472815453600221097 /* recaptcha.html in Resources */ = {isa = PBXBuildFile; fileRef = 336179462815451100221097 /* recaptcha.html */; };
+		33617949281549B400221097 /* ReCaptchaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33617948281549B400221097 /* ReCaptchaView.swift */; };
+		3361794A281549B400221097 /* ReCaptchaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33617948281549B400221097 /* ReCaptchaView.swift */; };
+		3361794C2816704300221097 /* PWKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3361794B2816704300221097 /* PWKWebView.swift */; };
+		3361794D2816704300221097 /* PWKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3361794B2816704300221097 /* PWKWebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +62,14 @@
 		330B62782814F5D900AE9D81 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		330B627C2814F5D900AE9D81 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		330B627E2814F5D900AE9D81 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		330B62942814F8D600AE9D81 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		330B629728151E3400AE9D81 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		336179402815433900221097 /* ReCAPTCHAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReCAPTCHAViewController.swift; sourceTree = "<group>"; };
+		336179432815438500221097 /* ReCAPTCHAViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReCAPTCHAViewModel.swift; sourceTree = "<group>"; };
+		336179462815451100221097 /* recaptcha.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = recaptcha.html; sourceTree = "<group>"; };
+		33617948281549B400221097 /* ReCaptchaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReCaptchaView.swift; sourceTree = "<group>"; };
+		3361794B2816704300221097 /* PWKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PWKWebView.swift; sourceTree = "<group>"; };
+		3361794E2816A45B00221097 /* RemoverWaterMark--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RemoverWaterMark--iOS--Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +107,7 @@
 		330B62522814F5D800AE9D81 = {
 			isa = PBXGroup;
 			children = (
+				3361794E2816A45B00221097 /* RemoverWaterMark--iOS--Info.plist */,
 				330B62572814F5D800AE9D81 /* Shared */,
 				330B62662814F5D900AE9D81 /* macOS */,
 				330B626F2814F5D900AE9D81 /* Tests iOS */,
@@ -100,6 +122,13 @@
 				330B62582814F5D800AE9D81 /* RemoverWaterMarkApp.swift */,
 				330B62592814F5D800AE9D81 /* ContentView.swift */,
 				330B625A2814F5D900AE9D81 /* Assets.xcassets */,
+				330B62942814F8D600AE9D81 /* ImagePickerView.swift */,
+				330B629728151E3400AE9D81 /* Request.swift */,
+				336179402815433900221097 /* ReCAPTCHAViewController.swift */,
+				336179432815438500221097 /* ReCAPTCHAViewModel.swift */,
+				336179462815451100221097 /* recaptcha.html */,
+				33617948281549B400221097 /* ReCaptchaView.swift */,
+				3361794B2816704300221097 /* PWKWebView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -221,6 +250,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
@@ -266,6 +298,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				336179472815453600221097 /* recaptcha.html in Resources */,
 				330B62842814F5D900AE9D81 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,8 +332,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				330B62952814F8D600AE9D81 /* ImagePickerView.swift in Sources */,
+				330B629828151E3400AE9D81 /* Request.swift in Sources */,
+				33617949281549B400221097 /* ReCaptchaView.swift in Sources */,
 				330B62822814F5D900AE9D81 /* ContentView.swift in Sources */,
 				330B62802814F5D900AE9D81 /* RemoverWaterMarkApp.swift in Sources */,
+				336179442815438500221097 /* ReCAPTCHAViewModel.swift in Sources */,
+				3361794C2816704300221097 /* PWKWebView.swift in Sources */,
+				336179412815433900221097 /* ReCAPTCHAViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,8 +347,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				330B62962814F8D600AE9D81 /* ImagePickerView.swift in Sources */,
+				330B629928151E3400AE9D81 /* Request.swift in Sources */,
+				3361794A281549B400221097 /* ReCaptchaView.swift in Sources */,
 				330B62832814F5D900AE9D81 /* ContentView.swift in Sources */,
 				330B62812814F5D900AE9D81 /* RemoverWaterMarkApp.swift in Sources */,
+				336179452815438500221097 /* ReCAPTCHAViewModel.swift in Sources */,
+				3361794D2816704300221097 /* PWKWebView.swift in Sources */,
+				336179422815433900221097 /* ReCAPTCHAViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,8 +508,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RCBY5FRZG5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RemoverWaterMark--iOS--Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = NSPhotoLibraryAddUsageDescription;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Use to Save Image";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -492,8 +542,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RCBY5FRZG5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RemoverWaterMark--iOS--Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = NSPhotoLibraryAddUsageDescription;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Use to Save Image";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
