@@ -3,8 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
     <script src="https://www.google.com/recaptcha/api.js?onload=onLoad&render=explicit&hl=en" async defer></script>
     <title></title>
+    <style>
+        .grecaptcha-badge{visibility:hidden;}
+    </style>
     <script type="text/javascript">
       const post = function(value) {
           window.webkit.messageHandlers.recaptcha.postMessage(value);
@@ -31,8 +35,11 @@
               size: "invisible"
             }
           );
-          grecaptcha.execute()
+          grecaptcha.ready(function() {
+                          grecaptcha.execute();
+                        });
       };
+    
     </script>
   </head>
   <body>
