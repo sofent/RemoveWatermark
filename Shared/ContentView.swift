@@ -34,11 +34,10 @@ struct ContentView: View {
                 .overlay(RoundedRectangle(cornerRadius: 3).stroke(.orange,lineWidth: 1))
                 if imageMark != nil {
                     Button (action:{
-                        
-                        self.showingSheet.toggle()
+                        shareSheet(items: [imageMark!])
                     },label: {
                         Text("Share").padding()
-                    })
+                    }).overlay(RoundedRectangle(cornerRadius: 3).stroke(.orange,lineWidth: 1))
                 }
             }
         }

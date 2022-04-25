@@ -95,3 +95,15 @@ mutating func addParamPart(boundary: String, name: String, value: String) {
 mutating func addMultiPartEnd(boundary: String) {
     self.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
 }}
+
+func shareSheet(items: [Any]) {
+    let activityView = UIActivityViewController(activityItems: items, applicationActivities: nil)
+
+    let allScenes = UIApplication.shared.connectedScenes
+    let scene = allScenes.first { $0.activationState == .foregroundActive }
+
+    if let windowScene = scene as? UIWindowScene {
+        windowScene.keyWindow?.rootViewController?.present(activityView, animated: true, completion: nil)
+    }
+
+}
