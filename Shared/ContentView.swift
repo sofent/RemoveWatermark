@@ -80,7 +80,10 @@ struct ContentView: View {
         .sheet(isPresented: $model.showRecaptcha){
             ReCaptchaView(){str in
                 print(str)
-                self.model.showRecaptcha.toggle()
+                DispatchQueue.main.async {
+                    self.model.showRecaptcha.toggle()
+                }
+                
                 uploadImage(token:str,paramName: "file", fileName: "test.png", image: self.model.image!){str  in
                     self.url=str
                     print(self.url)
@@ -88,8 +91,10 @@ struct ContentView: View {
                     if let data = try? Data(contentsOf: URL(string:str)!)
                     {
                         let imageToSave: UIImage! = UIImage(data: data)
+                        DispatchQueue.main.async {
                         self.imageMark=imageToSave
                         self.model.showProcessing=false
+                        }
                         if model.saveToPhotos{
                             let imageSaver=ImageSaver()
                             imageSaver.writeToPhotoAlbum(image: imageToSave)
