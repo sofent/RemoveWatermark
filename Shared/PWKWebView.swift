@@ -87,9 +87,8 @@ let url = URL(string: "https://www.google.com")!
 extension ReCAPTCHAViewController: WKUIDelegate, WKNavigationDelegate {
     public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         //load cookie of current domain
-        print(navigationAction.request.url)
-        print(navigationAction.request.allHTTPHeaderFields)
         if let host=navigationAction.request.url?.host{
+            print(host)
             webView.loadDiskCookies(for: host){
                 decisionHandler(.allow)
             }
@@ -100,9 +99,6 @@ extension ReCAPTCHAViewController: WKUIDelegate, WKNavigationDelegate {
     }
     
     public func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        print(navigationResponse.response.url)
-        //write cookie for current domain
-        print(navigationResponse.response)
         let res=navigationResponse.response as! HTTPURLResponse
         let cookie=HTTPCookie.cookies(withResponseHeaderFields: res.allHeaderFields as! [String:String], for: URL(string:(res.url?.host)!)!)
         print("cookie:",cookie)

@@ -21,13 +21,21 @@ class ActionViewController: UIViewController {
                 if provider.hasItemConformingToTypeIdentifier(UTType.image.identifier) {
 
                     provider.loadItem(forTypeIdentifier: UTType.image.identifier, options: nil, completionHandler: { (imageURL, error) in
-                        OperationQueue.main.addOperation {
+                            DispatchQueue.global(qos: .userInitiated).async{
                             
                             if let imageURL = imageURL as? URL {
-                                let defaults = UserDefaults(suiteName: "3HG5533YQ5.group.3HG5533YQ5.sofentapp")
-                                defaults!.set("hhhh", forKey: "myfile")
-                                print(imageURL.absoluteString)
-                                self.openContainerApp(imageURL.absoluteString)
+                                //3HG5533YQ5
+                                let defaults = UserDefaults(suiteName: "group.or.sofent.RemoverWaterMark")
+                                do{
+                                    let imageData: Data = try Data(contentsOf: imageURL)
+                                    defaults?.set(imageData, forKey: imageURL.absoluteString)
+                                   
+                                }catch{
+                                        print("Unable to load data: \(error)")
+                                }
+                                DispatchQueue.main.async {
+                                    self.openContainerApp(imageURL.absoluteString)
+                                }
                             }
                             
                         }

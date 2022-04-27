@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
    
-    <script src="https://www.google.com/recaptcha/api.js?onload=onLoad&render=explicit&hl=en" async defer></script>
+    <script src="https://www.recaptcha.net/recaptcha/api.js?onload=onLoad&render=explicit" async defer></script>
     <title></title>
     <style>
         .grecaptcha-badge{visibility:hidden;}
@@ -19,7 +19,7 @@
       };
 
       var onLoad = function() {
-          grecaptcha.render(
+          widgetId_473=grecaptcha.render(
             "recaptcha",
             {
               sitekey: "${siteKey}",
@@ -36,7 +36,7 @@
             }
           );
           grecaptcha.ready(function() {
-                          grecaptcha.execute();
+                          grecaptcha.execute(widgetId_473);
                         });
       };
     

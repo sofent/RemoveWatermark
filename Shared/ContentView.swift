@@ -9,21 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     @State var showImagePicker: Bool = false
-    @State var showRecaptcha: Bool = false
     @State var showingSheet: Bool = false
     
     @State var url: String = ""
-    @State var image: UIImage?
+    @ObservedObject var model = CounterViewModel()
     @State var imageMark: UIImage?
     var body: some View {
+        Section("AutoSave to Photos") {
+            Toggle("AutoSave", isOn: $model.saveToPhotos)
+        }
+        Divider()
         VStack{
-            if image != nil {
+            if model.image != nil {
                 HStack{
-                    Image(uiImage: image!).resizable().aspectRatio(contentMode: .fit)
+                    Image(uiImage: model.image!).resizable().aspectRatio(contentMode: .fit)
                     if imageMark != nil {
                         Image(uiImage: imageMark!).resizable().aspectRatio(contentMode: .fit)
                     }
                 }}
+            Spacer()
+            Divider()
             HStack{
             Button (action:{
                 
@@ -41,34 +46,35 @@ struct ContentView: View {
                 }
             }
         }
-        .sheet(isPresented: $showRecaptcha){
-            ReCaptchaView(){(str:String)->Void in
+        .sheet(isPresented: $model.showRecaptcha){
+            ReCaptchaView(){str in
                 print(str)
-                self.showRecaptcha.toggle()
-                uploadImage(token:str,paramName: "file", fileName: "test.png", image: self.image!){str  in
+                self.model.showRecaptcha.toggle()
+                uploadImage(token:str,paramName: "file", fileName: "test.png", image: self.model.image!){str  in
                     self.url=str
                     print(self.url)
+                    if model.saveToPhotos{
                     if let data = try? Data(contentsOf: URL(string:str)!)
                     {
                         let imageToSave: UIImage! = UIImage(data: data)
                         self.imageMark=imageToSave
                         let imageSaver=ImageSaver()
                         imageSaver.writeToPhotoAlbum(image: imageToSave)
-                    }
+                    }}
                 }
             }
         }
         .sheet(isPresented: $showImagePicker) {
             ImagePickerView(sourceType: .photoLibrary) { image in
-                self.image = image
+                self.model.image = image
 
                         // set up activity view controller
-                self.showRecaptcha.toggle()
+                self.model.showRecaptcha.toggle()
             }
         }
         .sheet(isPresented: $showingSheet,
                        content: {
-            ActivityView(activityItems: [self.image!] as [Any], applicationActivities: nil) })
+            ActivityView(activityItems: [self.model.image!] as [Any], applicationActivities: nil) })
         
     }
 }

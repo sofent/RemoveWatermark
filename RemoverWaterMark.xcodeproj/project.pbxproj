@@ -37,6 +37,8 @@
 		336179CA2817F63A00221097 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336179C92817F63A00221097 /* ActionViewController.swift */; };
 		336179CD2817F63A00221097 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336179CB2817F63A00221097 /* MainInterface.storyboard */; };
 		336179D12817F63A00221097 /* RemoveMark.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 336179C42817F63A00221097 /* RemoveMark.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		339919C52818F17D003C33E8 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339919C42818F17D003C33E8 /* ContentViewModel.swift */; };
+		339919C62818F17D003C33E8 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339919C42818F17D003C33E8 /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,7 @@
 		336179CE2817F63A00221097 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		336179D52818056400221097 /* RemoverWaterMark (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RemoverWaterMark (iOS).entitlements"; sourceTree = "<group>"; };
 		336179D62818059000221097 /* RemoveMark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RemoveMark.entitlements; sourceTree = "<group>"; };
+		339919C42818F17D003C33E8 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +181,7 @@
 				33617948281549B400221097 /* ReCaptchaView.swift */,
 				3361794B2816704300221097 /* PWKWebView.swift */,
 				3353E73B281714000001F12A /* ShareView.swift */,
+				339919C42818F17D003C33E8 /* ContentViewModel.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -438,6 +442,7 @@
 				330B629828151E3400AE9D81 /* Request.swift in Sources */,
 				33617949281549B400221097 /* ReCaptchaView.swift in Sources */,
 				330B62822814F5D900AE9D81 /* ContentView.swift in Sources */,
+				339919C52818F17D003C33E8 /* ContentViewModel.swift in Sources */,
 				330B62802814F5D900AE9D81 /* RemoverWaterMarkApp.swift in Sources */,
 				336179442815438500221097 /* ReCAPTCHAViewModel.swift in Sources */,
 				3353E73C281714010001F12A /* ShareView.swift in Sources */,
@@ -454,6 +459,7 @@
 				330B629928151E3400AE9D81 /* Request.swift in Sources */,
 				3361794A281549B400221097 /* ReCaptchaView.swift in Sources */,
 				330B62832814F5D900AE9D81 /* ContentView.swift in Sources */,
+				339919C62818F17D003C33E8 /* ContentViewModel.swift in Sources */,
 				330B62812814F5D900AE9D81 /* RemoverWaterMarkApp.swift in Sources */,
 				336179452815438500221097 /* ReCAPTCHAViewModel.swift in Sources */,
 				3353E73D281714010001F12A /* ShareView.swift in Sources */,
