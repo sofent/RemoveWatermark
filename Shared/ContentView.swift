@@ -20,7 +20,7 @@ struct ContentView: View {
         }
         Divider()
         if model.showProcessing {
-            ProgressView()
+            ProgressView().padding()
         }
         VStack{
             if model.image != nil {

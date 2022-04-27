@@ -22,6 +22,7 @@
 		330B629828151E3400AE9D81 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B629728151E3400AE9D81 /* Request.swift */; };
 		330B629928151E3400AE9D81 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B629728151E3400AE9D81 /* Request.swift */; };
 		3345A85A2819372900AD25CE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3345A8592819372900AD25CE /* Launch Screen.storyboard */; };
+		3345A85C2819479100AD25CE /* UIImageForMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345A85B2819479100AD25CE /* UIImageForMacOS.swift */; };
 		3353E73C281714010001F12A /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353E73B281714000001F12A /* ShareView.swift */; };
 		3353E73D281714010001F12A /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353E73B281714000001F12A /* ShareView.swift */; };
 		336179412815433900221097 /* ReCAPTCHAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336179402815433900221097 /* ReCAPTCHAViewController.swift */; };
@@ -94,6 +95,7 @@
 		330B62942814F8D600AE9D81 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		330B629728151E3400AE9D81 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		3345A8592819372900AD25CE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		3345A85B2819479100AD25CE /* UIImageForMacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageForMacOS.swift; sourceTree = "<group>"; };
 		3353E73B281714000001F12A /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		336179402815433900221097 /* ReCAPTCHAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReCAPTCHAViewController.swift; sourceTree = "<group>"; };
 		336179432815438500221097 /* ReCAPTCHAViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReCAPTCHAViewModel.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				33617948281549B400221097 /* ReCaptchaView.swift */,
 				3353E73B281714000001F12A /* ShareView.swift */,
 				339919C42818F17D003C33E8 /* ContentViewModel.swift */,
+				3345A85B2819479100AD25CE /* UIImageForMacOS.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				330B62962814F8D600AE9D81 /* ImagePickerView.swift in Sources */,
 				330B629928151E3400AE9D81 /* Request.swift in Sources */,
 				3361794A281549B400221097 /* ReCaptchaView.swift in Sources */,
+				3345A85C2819479100AD25CE /* UIImageForMacOS.swift in Sources */,
 				330B62832814F5D900AE9D81 /* ContentView.swift in Sources */,
 				339919C62818F17D003C33E8 /* ContentViewModel.swift in Sources */,
 				330B62812814F5D900AE9D81 /* RemoverWaterMarkApp.swift in Sources */,

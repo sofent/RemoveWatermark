@@ -1,4 +1,6 @@
+#if !os(macOS)
 import UIKit
+#endif
 import WebKit
 
 public class ReCAPTCHAViewController: UIViewController {

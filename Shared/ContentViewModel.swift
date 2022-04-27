@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if !os(macOS)
 import UIKit
+#endif
 import SwiftUI
 
 final class CounterViewModel: ObservableObject {
