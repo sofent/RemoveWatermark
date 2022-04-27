@@ -29,6 +29,15 @@ struct ContentView: View {
                         Image(uiImage: model.image!).resizable().aspectRatio(contentMode: .fit)
                         if imageMark != nil {
                             Image(uiImage: imageMark!).resizable().aspectRatio(contentMode: .fit)
+                                .contextMenu{
+                                    Button("Share") {
+                                        self.showingSheet.toggle()
+                                    }
+                                    Button("Save") {
+                                        let imageSaver=ImageSaver()
+                                        imageSaver.writeToPhotoAlbum(image: imageMark!)
+                                    }
+                                }
                         }
                     }
                 }else{
