@@ -16,7 +16,7 @@ struct ContentView: View {
     @State var imageMark: UIImage?
     var body: some View {
         Section("AutoSave to Photos") {
-            Toggle("AutoSave", isOn: $model.saveToPhotos)
+            Toggle("AutoSave", isOn: $model.saveToPhotos).padding()
         }
         Divider()
         if model.showProcessing {
