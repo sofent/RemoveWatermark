@@ -2,7 +2,7 @@ import UIKit
 import WebKit
 
 public class ReCAPTCHAViewController: UIViewController {
-    private var webView: PWKWebView!
+    private var webView: WKWebView!
     private let viewModel: ReCAPTCHAViewModel
 
     init(viewModel: ReCAPTCHAViewModel) {
@@ -22,9 +22,7 @@ public class ReCAPTCHAViewController: UIViewController {
         contentController.add(viewModel, name: "recaptcha")
         webConfiguration.userContentController = contentController
 
-        webView = PWKWebView(frame: .zero, configuration: webConfiguration)
-        webView.uiDelegate=self
-        webView.navigationDelegate=self
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.customUserAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.5 Safari/605.1.15"
        
         view = webView

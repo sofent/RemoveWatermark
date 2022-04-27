@@ -19,6 +19,9 @@ struct ContentView: View {
             Toggle("AutoSave", isOn: $model.saveToPhotos)
         }
         Divider()
+        if model.showProcessing {
+            ProgressView()
+        }
         VStack{
             if model.image != nil {
                 if (model.image?.size.height)! < (model.image?.size.width)!{
@@ -33,6 +36,15 @@ struct ContentView: View {
                         Image(uiImage: model.image!).resizable().aspectRatio(contentMode: .fit)
                         if imageMark != nil {
                             Image(uiImage: imageMark!).resizable().aspectRatio(contentMode: .fit)
+                                .contextMenu{
+                                    Button("Share") {
+                                        self.showingSheet.toggle()
+                                    }
+                                    Button("Save") {
+                                        let imageSaver=ImageSaver()
+                                        imageSaver.writeToPhotoAlbum(image: imageMark!)
+                                    }
+                                }
                         }
                     }}
                 }
@@ -68,6 +80,7 @@ struct ContentView: View {
                     {
                         let imageToSave: UIImage! = UIImage(data: data)
                         self.imageMark=imageToSave
+                        self.model.showProcessing=false
                         if model.saveToPhotos{
                             let imageSaver=ImageSaver()
                             imageSaver.writeToPhotoAlbum(image: imageToSave)
@@ -81,6 +94,7 @@ struct ContentView: View {
                 
                 // set up activity view controller
                 self.model.showRecaptcha.toggle()
+                self.model.showProcessing.toggle()
             }
         }
         .sheet(isPresented: $showingSheet,

@@ -12,5 +12,6 @@ import SwiftUI
 final class CounterViewModel: ObservableObject {
     @Published var image :UIImage?
     @Published var showRecaptcha: Bool = false
+    @Published var showProcessing: Bool = false
     @AppStorage("autoSave") var saveToPhotos:Bool=false
 }

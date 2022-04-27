@@ -44,6 +44,7 @@ struct RemoverWaterMarkApp: App {
                 //self.bodyView.image = image
                 self.bodyView.model.image=image
                 self.bodyView.model.showRecaptcha.toggle()
+                self.bodyView.model.showProcessing.toggle()
                 }
            
             }catch{
@@ -67,6 +68,7 @@ struct RemoverWaterMarkApp: App {
                 //self.bodyView.image = image
                 self.bodyView.model.image=image
                 self.bodyView.model.showRecaptcha.toggle()
+                self.bodyView.model.showProcessing.toggle()
                 }
            
         }

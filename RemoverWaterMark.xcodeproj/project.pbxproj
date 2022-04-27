@@ -31,8 +31,6 @@
 		336179472815453600221097 /* recaptcha.html in Resources */ = {isa = PBXBuildFile; fileRef = 336179462815451100221097 /* recaptcha.html */; };
 		33617949281549B400221097 /* ReCaptchaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33617948281549B400221097 /* ReCaptchaView.swift */; };
 		3361794A281549B400221097 /* ReCaptchaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33617948281549B400221097 /* ReCaptchaView.swift */; };
-		3361794C2816704300221097 /* PWKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3361794B2816704300221097 /* PWKWebView.swift */; };
-		3361794D2816704300221097 /* PWKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3361794B2816704300221097 /* PWKWebView.swift */; };
 		336179C52817F63A00221097 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336179AF2817F5D700221097 /* UniformTypeIdentifiers.framework */; };
 		336179C82817F63A00221097 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 336179C72817F63A00221097 /* Media.xcassets */; };
 		336179CA2817F63A00221097 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336179C92817F63A00221097 /* ActionViewController.swift */; };
@@ -101,7 +99,6 @@
 		336179432815438500221097 /* ReCAPTCHAViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReCAPTCHAViewModel.swift; sourceTree = "<group>"; };
 		336179462815451100221097 /* recaptcha.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = recaptcha.html; sourceTree = "<group>"; };
 		33617948281549B400221097 /* ReCaptchaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReCaptchaView.swift; sourceTree = "<group>"; };
-		3361794B2816704300221097 /* PWKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PWKWebView.swift; sourceTree = "<group>"; };
 		3361794E2816A45B00221097 /* RemoverWaterMark--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RemoverWaterMark--iOS--Info.plist"; sourceTree = "<group>"; };
 		336179AF2817F5D700221097 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
 		336179C42817F63A00221097 /* RemoveMark.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RemoveMark.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,7 +179,6 @@
 				336179432815438500221097 /* ReCAPTCHAViewModel.swift */,
 				336179462815451100221097 /* recaptcha.html */,
 				33617948281549B400221097 /* ReCaptchaView.swift */,
-				3361794B2816704300221097 /* PWKWebView.swift */,
 				3353E73B281714000001F12A /* ShareView.swift */,
 				339919C42818F17D003C33E8 /* ContentViewModel.swift */,
 			);
@@ -450,7 +446,6 @@
 				330B62802814F5D900AE9D81 /* RemoverWaterMarkApp.swift in Sources */,
 				336179442815438500221097 /* ReCAPTCHAViewModel.swift in Sources */,
 				3353E73C281714010001F12A /* ShareView.swift in Sources */,
-				3361794C2816704300221097 /* PWKWebView.swift in Sources */,
 				336179412815433900221097 /* ReCAPTCHAViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,7 +462,6 @@
 				330B62812814F5D900AE9D81 /* RemoverWaterMarkApp.swift in Sources */,
 				336179452815438500221097 /* ReCAPTCHAViewModel.swift in Sources */,
 				3353E73D281714010001F12A /* ShareView.swift in Sources */,
-				3361794D2816704300221097 /* PWKWebView.swift in Sources */,
 				336179422815433900221097 /* ReCAPTCHAViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
