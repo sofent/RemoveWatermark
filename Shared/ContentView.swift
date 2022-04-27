@@ -21,21 +21,31 @@ struct ContentView: View {
         Divider()
         VStack{
             if model.image != nil {
-                HStack{
-                    Image(uiImage: model.image!).resizable().aspectRatio(contentMode: .fit)
-                    if imageMark != nil {
-                        Image(uiImage: imageMark!).resizable().aspectRatio(contentMode: .fit)
+                if (model.image?.size.height)! < (model.image?.size.width)!{
+                    VStack{
+                        Image(uiImage: model.image!).resizable().aspectRatio(contentMode: .fit)
+                        if imageMark != nil {
+                            Image(uiImage: imageMark!).resizable().aspectRatio(contentMode: .fit)
+                        }
                     }
-                }}
+                }else{
+                    HStack{
+                        Image(uiImage: model.image!).resizable().aspectRatio(contentMode: .fit)
+                        if imageMark != nil {
+                            Image(uiImage: imageMark!).resizable().aspectRatio(contentMode: .fit)
+                        }
+                    }}
+                }
+                
             Spacer()
             Divider()
             HStack{
-            Button (action:{
-                
-                self.showImagePicker.toggle()
-            },label: {
-                Text("Pick Image").padding()
-            })
+                Button (action:{
+                    
+                    self.showImagePicker.toggle()
+                },label: {
+                    Text("Pick Image").padding()
+                })
                 .overlay(RoundedRectangle(cornerRadius: 3).stroke(.orange,lineWidth: 1))
                 if imageMark != nil {
                     Button (action:{
@@ -53,27 +63,28 @@ struct ContentView: View {
                 uploadImage(token:str,paramName: "file", fileName: "test.png", image: self.model.image!){str  in
                     self.url=str
                     print(self.url)
-                    if model.saveToPhotos{
+                    
                     if let data = try? Data(contentsOf: URL(string:str)!)
                     {
                         let imageToSave: UIImage! = UIImage(data: data)
                         self.imageMark=imageToSave
-                        let imageSaver=ImageSaver()
-                        imageSaver.writeToPhotoAlbum(image: imageToSave)
-                    }}
+                        if model.saveToPhotos{
+                            let imageSaver=ImageSaver()
+                            imageSaver.writeToPhotoAlbum(image: imageToSave)
+                        }}
                 }
             }
         }
         .sheet(isPresented: $showImagePicker) {
             ImagePickerView(sourceType: .photoLibrary) { image in
                 self.model.image = image
-
-                        // set up activity view controller
+                
+                // set up activity view controller
                 self.model.showRecaptcha.toggle()
             }
         }
         .sheet(isPresented: $showingSheet,
-                       content: {
+               content: {
             ActivityView(activityItems: [self.model.image!] as [Any], applicationActivities: nil) })
         
     }

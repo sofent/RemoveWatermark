@@ -10,32 +10,34 @@ import SwiftUI
 
 func uploadImage(token:String,paramName: String, fileName: String, image: UIImage,callback: @escaping (String)->Void) {
     let url = URL(string: "https://api.pixelbin.io/service/panel/assets/v1.0/upload/direct")
-
+    
     // generate boundary string using a unique per-app string
     let boundary = UUID().uuidString
-
+    
     let session = URLSession.shared
-
+    
     // Set the URLRequest to POST and to the specified URL
     var urlRequest = URLRequest(url: url!)
     urlRequest.httpMethod = "POST"
-
+    
     // Set Content-Type Header to multipart/form-data, this is equivalent to submitting form data with file upload in a web browser
     // And the boundary is also set here
     urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
     urlRequest.setValue(token, forHTTPHeaderField: "captcha-code")
     urlRequest.setValue("MjAyMjA0MjRUMDc0NDQxWg==", forHTTPHeaderField: "x-ebg-param")
     urlRequest.setValue("v1:e72fb1133e4043381800aa5eb75bb5c61005320e9290825013cd6add1161e36d", forHTTPHeaderField: "x-ebg-signature")
-
+    
     var data = Data()
     var tmpImg=image
-    print(image.size)
     
     if image.size.height>2400 || image.size.width>2400 {
-        tmpImg=image.resized(to: CGSize(width: 1200, height: 1200))
+        tmpImg=image.resized(to: CGSize(width: 2000, height: 2000))
         
     }
-    data.addFilePart(boundary: boundary, name: paramName, filename: fileName, contentType: "image/jpeg", data: tmpImg.jpegData(compressionQuality: 0.5)!)
+    print(tmpImg.size)
+    let imageData = tmpImg.jpegData(compressionQuality: 0.9)!
+    print(imageData)
+    data.addFilePart(boundary: boundary, name: paramName, filename: fileName, contentType: "image/jpeg", data: imageData)
     
     data.addParamPart(boundary: boundary, name: "filenameOverride", value: "true")
     data.addParamPart(boundary: boundary, name: "path", value: "__editor/2022-04-24")
@@ -58,7 +60,7 @@ class ImageSaver: NSObject {
     func writeToPhotoAlbum(image: UIImage) {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
     }
-
+    
     @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         print("Save finished!")
     }
@@ -70,7 +72,7 @@ extension UIImage {
             target.height / size.height, target.width / size.width
         )
         let new = CGSize(
-            width: size.width * ratio, height: size.height * ratio
+            width: size.width * ratio/UIScreen.main.scale, height: size.height * ratio/UIScreen.main.scale
         )
         let renderer = UIGraphicsImageRenderer(size: new)
         return renderer.image { _ in
@@ -80,30 +82,30 @@ extension UIImage {
 }
 
 private extension Data {
-mutating func addFilePart(boundary: String, name: String, filename: String, contentType: String, data: Data) {
-    self.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
-    self.append("Content-Disposition: form-data; name=\"\(name)\"; filename=\"\(filename)\"\r\n".data(using: .utf8)!)
-    self.append("Content-Type: \(contentType)\r\n\r\n".data(using: .utf8)!)
-    self.append(data)
-}
+    mutating func addFilePart(boundary: String, name: String, filename: String, contentType: String, data: Data) {
+        self.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+        self.append("Content-Disposition: form-data; name=\"\(name)\"; filename=\"\(filename)\"\r\n".data(using: .utf8)!)
+        self.append("Content-Type: \(contentType)\r\n\r\n".data(using: .utf8)!)
+        self.append(data)
+    }
     
-mutating func addParamPart(boundary: String, name: String, value: String) {
+    mutating func addParamPart(boundary: String, name: String, value: String) {
         self.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
         self.append("Content-Disposition: form-data; name=\"\(name)\"\r\n\r\n".data(using: .utf8)!)
-    self.append(value.data(using: .utf8)!)
+        self.append(value.data(using: .utf8)!)
     }
-mutating func addMultiPartEnd(boundary: String) {
-    self.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
-}}
+    mutating func addMultiPartEnd(boundary: String) {
+        self.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+    }}
 
 func shareSheet(items: [Any]) {
     let activityView = UIActivityViewController(activityItems: items, applicationActivities: nil)
-
+    
     let allScenes = UIApplication.shared.connectedScenes
     let scene = allScenes.first { $0.activationState == .foregroundActive }
-
+    
     if let windowScene = scene as? UIWindowScene {
         windowScene.keyWindow?.rootViewController?.present(activityView, animated: true, completion: nil)
     }
-
+    
 }
