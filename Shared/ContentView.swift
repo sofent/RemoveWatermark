@@ -125,9 +125,10 @@ struct ContentView: View {
                     
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     .offset(x: self.showSetting ? geometry.size.width/2 : 0)
+                    .disabled(self.showSetting)
                     if self.showSetting{
                         SettingView(saveToPhotos: $model.saveToPhotos)
-                            .frame(width: geometry.size.width/2)
+                            .frame(width: geometry.size.width/2,height: geometry.size.height)
                                                         .transition(.move(edge: .leading))
                     }
                     
