@@ -16,7 +16,7 @@ struct RemoverWaterMarkApp: App {
                 .onOpenURL { url in
                     switch url.scheme{
                     case "sremovemk":
-                    
+                        
                         let imageUrl=url.host?.removingPercentEncoding
                         fetchImage(imageUrl)
                     case "file":
@@ -32,45 +32,40 @@ struct RemoverWaterMarkApp: App {
         }
     }
     private func openURLImage(_ photoURL: URL?) {
-
+        
         let imageURL = photoURL
-       
+        
         DispatchQueue.global(qos: .userInitiated).async {
             do{
-            let imageData: Data = try Data(contentsOf: imageURL!)
-
-            DispatchQueue.main.async {
-                let image = UIImage(data: imageData)
-                //self.bodyView.image = image
-                self.bodyView.model.image=image
-                self.bodyView.model.showRecaptcha.toggle()
-                self.bodyView.model.showProcessing.toggle()
+                let imageData: Data = try Data(contentsOf: imageURL!)
+                
+                DispatchQueue.main.async {
+                    let image = UIImage(data: imageData)
+                    bodyView.startProcess(image: image)
                 }
-           
+                
             }catch{
                 print("Unable to load data: \(error)")
             }
         }}
     
     private func fetchImage(_ photoURL: String?) {
-
+        
         guard let imageURL = photoURL else { return  }
-       
+        
         DispatchQueue.global(qos: .userInitiated).async {
             let defaults = UserDefaults(suiteName: "group.or.sofent.RemoverWaterMark")
             defaults!.synchronize()
             let d = defaults!.data(forKey: imageURL)
             defaults?.removeObject(forKey: imageURL)
             let imageData: Data = d!
-
+            
             DispatchQueue.main.async {
-                    let image = UIImage(data: imageData)
-                //self.bodyView.image = image
-                self.bodyView.model.image=image
-                self.bodyView.model.showRecaptcha.toggle()
-                self.bodyView.model.showProcessing.toggle()
-                }
-           
+                let image = UIImage(data: imageData)
+                
+                bodyView.startProcess(image: image)
+            }
+            
         }
     }
 }

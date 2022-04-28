@@ -12,7 +12,7 @@ public struct ReCaptchaView:UIViewControllerRepresentable{
     public init(del:((String)->Void)?){
         self.delegate=del
     }
-   
+    
     public func updateUIViewController(_ uiViewController: ReCAPTCHAViewController, context: Context) {
         
     }
@@ -29,7 +29,7 @@ public struct ReCaptchaView:UIViewControllerRepresentable{
     }
     
     public func makeCoordinator(){
-       
+        
     }
 }
 

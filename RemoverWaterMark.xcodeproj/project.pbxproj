@@ -39,6 +39,7 @@
 		336179D12817F63A00221097 /* RemoveMark.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 336179C42817F63A00221097 /* RemoveMark.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		339919C52818F17D003C33E8 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339919C42818F17D003C33E8 /* ContentViewModel.swift */; };
 		339919C62818F17D003C33E8 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339919C42818F17D003C33E8 /* ContentViewModel.swift */; };
+		33D0A1BA281A5EF9001467EF /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0A1B9281A5EF9001467EF /* ToastView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		336179D52818056400221097 /* RemoverWaterMark (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RemoverWaterMark (iOS).entitlements"; sourceTree = "<group>"; };
 		336179D62818059000221097 /* RemoveMark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RemoveMark.entitlements; sourceTree = "<group>"; };
 		339919C42818F17D003C33E8 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		33D0A1B9281A5EF9001467EF /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				3353E73B281714000001F12A /* ShareView.swift */,
 				339919C42818F17D003C33E8 /* ContentViewModel.swift */,
 				3345A85B2819479100AD25CE /* UIImageForMacOS.swift */,
+				33D0A1B9281A5EF9001467EF /* ToastView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				330B629828151E3400AE9D81 /* Request.swift in Sources */,
 				33617949281549B400221097 /* ReCaptchaView.swift in Sources */,
 				330B62822814F5D900AE9D81 /* ContentView.swift in Sources */,
+				33D0A1BA281A5EF9001467EF /* ToastView.swift in Sources */,
 				339919C52818F17D003C33E8 /* ContentViewModel.swift in Sources */,
 				330B62802814F5D900AE9D81 /* RemoverWaterMarkApp.swift in Sources */,
 				336179442815438500221097 /* ReCAPTCHAViewModel.swift in Sources */,
@@ -656,7 +660,6 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
@@ -693,7 +696,6 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;

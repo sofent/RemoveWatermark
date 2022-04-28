@@ -10,73 +10,73 @@ import SwiftUI
 struct ContentView: View {
     @State var showImagePicker: Bool = false
     @State var showingSheet: Bool = false
+    @State var showToast: Bool = false
     
     @State var url: String = ""
     @ObservedObject var model = CounterViewModel()
     @State var imageMark: UIImage?
     var body: some View {
-        Section("AutoSave to Photos") {
-            Toggle("AutoSave", isOn: $model.saveToPhotos).padding()
-        }
-        Divider()
-        if model.showProcessing {
-            ProgressView().padding()
-        }
         VStack{
-            if model.image != nil {
-                if (model.image?.size.height)! < (model.image?.size.width)!{
-                    VStack{
-                        Image(uiImage: model.image!).resizable().aspectRatio(contentMode: .fit)
-                        if imageMark != nil {
-                            Image(uiImage: imageMark!).resizable().aspectRatio(contentMode: .fit)
-                                .contextMenu{
-                                    Button("Share") {
-                                        self.showingSheet.toggle()
+            Section("AutoSave to Photos") {
+                Toggle("AutoSave", isOn: $model.saveToPhotos).padding()
+            }
+            Divider()
+            if model.showProcessing {
+                ProgressView().padding()
+            }
+            VStack{
+                if model.image != nil {
+                    if (model.image?.size.height)! < (model.image?.size.width)!{
+                        VStack{
+                            Image(uiImage: model.image!).resizable().aspectRatio(contentMode: .fit)
+                            if imageMark != nil {
+                                Image(uiImage: imageMark!).resizable().aspectRatio(contentMode: .fit)
+                                    .contextMenu{
+                                        Button("Share") {
+                                            self.showingSheet.toggle()
+                                        }
+                                        Button("Save") {
+                                            saveImage()
+                                        }
                                     }
-                                    Button("Save") {
-                                        let imageSaver=ImageSaver()
-                                        imageSaver.writeToPhotoAlbum(image: imageMark!)
-                                    }
-                                }
+                            }
                         }
-                    }
-                }else{
-                    HStack{
-                        Image(uiImage: model.image!).resizable().aspectRatio(contentMode: .fit)
-                        if imageMark != nil {
-                            Image(uiImage: imageMark!).resizable().aspectRatio(contentMode: .fit)
-                                .contextMenu{
-                                    Button("Share") {
-                                        self.showingSheet.toggle()
+                    }else{
+                        HStack{
+                            Image(uiImage: model.image!).resizable().aspectRatio(contentMode: .fit)
+                            if imageMark != nil {
+                                Image(uiImage: imageMark!).resizable().aspectRatio(contentMode: .fit)
+                                    .contextMenu{
+                                        Button("Share") {
+                                            self.showingSheet.toggle()
+                                        }
+                                        Button("Save") {
+                                            saveImage()
+                                        }
                                     }
-                                    Button("Save") {
-                                        let imageSaver=ImageSaver()
-                                        imageSaver.writeToPhotoAlbum(image: imageMark!)
-                                    }
-                                }
-                        }
-                    }}
+                            }
+                        }}
                 }
                 
-            Spacer()
-            Divider()
-            HStack{
-                Button (action:{
-                    
-                    self.showImagePicker.toggle()
-                },label: {
-                    Text("Pick Image").padding()
-                })
-                .overlay(RoundedRectangle(cornerRadius: 3).stroke(.orange,lineWidth: 1))
-                if imageMark != nil {
+                Spacer()
+                Divider()
+                HStack{
                     Button (action:{
-                        shareSheet(items: [imageMark!])
+                        
+                        self.showImagePicker.toggle()
                     },label: {
-                        Text("Share").padding()
-                    }).overlay(RoundedRectangle(cornerRadius: 3).stroke(.orange,lineWidth: 1))
+                        Text("Pick Image").padding()
+                    })
+                    .overlay(RoundedRectangle(cornerRadius: 3).stroke(.orange,lineWidth: 1))
+                    if imageMark != nil {
+                        Button (action:{
+                            shareSheet(items: [imageMark!])
+                        },label: {
+                            Text("Share").padding()
+                        }).overlay(RoundedRectangle(cornerRadius: 3).stroke(.orange,lineWidth: 1))
+                    }
                 }
-            }
-        }
+            }}
         .sheet(isPresented: $model.showRecaptcha){
             ReCaptchaView(){str in
                 print(str)
@@ -92,29 +92,39 @@ struct ContentView: View {
                     {
                         let imageToSave: UIImage! = UIImage(data: data)
                         DispatchQueue.main.async {
-                        self.imageMark=imageToSave
-                        self.model.showProcessing=false
+                            self.imageMark=imageToSave
+                            self.model.showProcessing=false
+                            if model.saveToPhotos{
+                                saveImage()
+                            }
                         }
-                        if model.saveToPhotos{
-                            let imageSaver=ImageSaver()
-                            imageSaver.writeToPhotoAlbum(image: imageToSave)
-                        }}
+                    }
                 }
             }
         }
         .sheet(isPresented: $showImagePicker) {
             ImagePickerView(sourceType: .photoLibrary) { image in
-                self.model.image = image
-                
-                // set up activity view controller
-                self.model.showRecaptcha.toggle()
-                self.model.showProcessing.toggle()
+                startProcess(image: image)
             }
         }
         .sheet(isPresented: $showingSheet,
                content: {
             ActivityView(activityItems: [self.model.image!] as [Any], applicationActivities: nil) })
+        .toast(message: "Image saved to gallery", isShowing: $showToast, duration: Toast.short)
         
+    }
+    
+    private func saveImage(){
+        let imageSaver=ImageSaver()
+        imageSaver.writeToPhotoAlbum(image: self.imageMark!)
+        self.showToast.toggle()
+    }
+    
+    func startProcess(image:UIImage?){
+        self.model.image = image
+        
+        self.model.showRecaptcha.toggle()
+        self.model.showProcessing.toggle()
     }
 }
 

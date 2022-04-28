@@ -4,26 +4,26 @@ import WebKit
 
 final class ReCAPTCHAViewModel: NSObject {
     var delegate: ((String)->Void)?
-
+    
     var html: String {
         guard let filePath = Bundle.main.path(
             forResource: "recaptcha", ofType: "html"
-            ) else {
-                assertionFailure("Unable to find the file.")
-
-                return ""
+        ) else {
+            assertionFailure("Unable to find the file.")
+            
+            return ""
         }
-
+        
         let contents = try! String(
             contentsOfFile: filePath, encoding: .utf8
         )
-
+        
         return parse(contents, with: ["siteKey": siteKey])
     }
     
     let siteKey: String
     let url: URL
-
+    
     /// Creates a ReCAPTCHAViewModel
     /// - Parameters:
     ///   - siteKey: ReCAPTCHA's site key
@@ -31,7 +31,7 @@ final class ReCAPTCHAViewModel: NSObject {
     init(siteKey: String, url: URL) {
         self.siteKey = siteKey
         self.url = url
-
+        
         super.init()
     }
 }
@@ -44,7 +44,7 @@ extension ReCAPTCHAViewModel: WKScriptMessageHandler {
             assertionFailure("Expected a string")
             return
         }
-
+        
         delegate?(message)
     }
 }
@@ -52,13 +52,13 @@ extension ReCAPTCHAViewModel: WKScriptMessageHandler {
 private extension ReCAPTCHAViewModel {
     func parse(_ string: String, with valueMap: [String: String]) -> String {
         var parsedString = string
-
+        
         valueMap.forEach { key, value in
             parsedString = parsedString.replacingOccurrences(
                 of: "${\(key)}", with: value
             )
         }
-
+        
         return parsedString
     }
 }
