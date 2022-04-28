@@ -70,21 +70,16 @@ struct ContentView: View {
                             Spacer()
                             Divider()
                             HStack{
-                                Button (action:{
-                                    
+                                Button("Pick Image"){
                                     self.showImagePicker.toggle()
-                                },label: {
-                                    Text("Pick Image").padding()
-                                })
-                                .overlay(RoundedRectangle(cornerRadius: 3).stroke(.orange,lineWidth: 1))
+                                }
                                 if imageMark != nil {
-                                    Button (action:{
+                                    Button ("Share"){
                                         shareSheet(items: [imageMark!])
-                                    },label: {
-                                        Text("Share").padding()
-                                    }).overlay(RoundedRectangle(cornerRadius: 3).stroke(.orange,lineWidth: 1))
+                                    }
                                 }
                             }
+                            Divider()
                         }
                         .sheet(isPresented: $model.showRecaptcha){
                             ReCaptchaView(){str in
@@ -137,8 +132,7 @@ struct ContentView: View {
                     }
                     
                 }
-                .simultaneousGesture(drag)
-                //.gesture(drag)
+                .gesture(drag)
                 
             }.navigationBarTitleDisplayMode(.inline)
                .navigationTitle("Remove Water Mark")
