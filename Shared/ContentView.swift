@@ -19,7 +19,6 @@ struct ContentView: View {
     var body: some View {
         let drag = DragGesture()
                     .onEnded {
-                        print($0.translation.width)
                         if $0.translation.width < -100 {
                             withAnimation {
                                 self.showSetting = false
@@ -125,7 +124,12 @@ struct ContentView: View {
                     
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     .offset(x: self.showSetting ? geometry.size.width/2 : 0)
-                    .disabled(self.showSetting)
+                    .background(Color(UIColor.systemBackground))
+                    .onTapGesture {
+                        withAnimation {
+                        self.showSetting=false
+                        }
+                    }
                     if self.showSetting{
                         SettingView(saveToPhotos: $model.saveToPhotos)
                             .frame(width: geometry.size.width/2,height: geometry.size.height)
