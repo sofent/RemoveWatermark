@@ -40,6 +40,7 @@
 		339919C52818F17D003C33E8 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339919C42818F17D003C33E8 /* ContentViewModel.swift */; };
 		339919C62818F17D003C33E8 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339919C42818F17D003C33E8 /* ContentViewModel.swift */; };
 		33D0A1BA281A5EF9001467EF /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0A1B9281A5EF9001467EF /* ToastView.swift */; };
+		33D0A1BC281A6A65001467EF /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0A1BB281A6A65001467EF /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		336179D62818059000221097 /* RemoveMark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RemoveMark.entitlements; sourceTree = "<group>"; };
 		339919C42818F17D003C33E8 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		33D0A1B9281A5EF9001467EF /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		33D0A1BB281A6A65001467EF /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				339919C42818F17D003C33E8 /* ContentViewModel.swift */,
 				3345A85B2819479100AD25CE /* UIImageForMacOS.swift */,
 				33D0A1B9281A5EF9001467EF /* ToastView.swift */,
+				33D0A1BB281A6A65001467EF /* SettingView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				336179442815438500221097 /* ReCAPTCHAViewModel.swift in Sources */,
 				3353E73C281714010001F12A /* ShareView.swift in Sources */,
 				336179412815433900221097 /* ReCAPTCHAViewController.swift in Sources */,
+				33D0A1BC281A6A65001467EF /* SettingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
