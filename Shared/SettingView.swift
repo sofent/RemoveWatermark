@@ -12,8 +12,9 @@ struct SettingView: View {
     var body: some View {
         HStack{
             VStack(alignment: .leading){
+                Divider() .padding(.top,75)
                 Text("Setting")
-                .padding(.top,75)
+               
                 Divider()
                 Toggle("AutoSave", isOn:$saveToPhotos)
                 Spacer()
@@ -24,7 +25,7 @@ struct SettingView: View {
         } .padding()
             
             .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .leading)
-        //.background(Color(red: 32/255, green: 32/255, blue: 32/255))
+            .background(Color(UIColor.systemBackground))
             .edgesIgnoringSafeArea(.all)
     }
 }

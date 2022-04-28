@@ -133,7 +133,8 @@ struct ContentView: View {
                     }
                     
                 }
-                .gesture(drag)
+                .simultaneousGesture(drag)
+                //.gesture(drag)
                 
             }.navigationBarTitleDisplayMode(.inline)
                .navigationTitle("Remove Water Mark")
