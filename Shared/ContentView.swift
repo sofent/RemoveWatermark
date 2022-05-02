@@ -18,21 +18,18 @@ struct ContentView: View {
     @State var imageMark: UIImage?
     var body: some View {
         let drag = DragGesture()
-                    .onEnded {
-                        if $0.translation.width < -100 {
-                            withAnimation {
-                                self.showSetting = false
-                            }
-                        }
+            .onEnded {
+                if $0.translation.width < -100 {
+                    withAnimation {
+                        self.showSetting = false
                     }
-       return  NavigationView{
+                }
+            }
+        return  NavigationView{
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
                     VStack{
-                        Divider()
-                        if model.showProcessing {
-                            ProgressView().padding()
-                        }
+                        
                         VStack{
                             if model.image != nil {
                                 if (model.image?.size.height)! < (model.image?.size.width)!{
@@ -47,7 +44,14 @@ struct ContentView: View {
                                                     Button("Save") {
                                                         saveImage()
                                                     }
-                                                }
+                                                } .transition(.scale)
+                                        }else{
+                                            HStack{
+                                                Spacer()
+                                                ProgressView().padding()
+                                                Spacer()
+                                            }
+                                            
                                         }
                                     }
                                 }else{
@@ -63,6 +67,12 @@ struct ContentView: View {
                                                         saveImage()
                                                     }
                                                 }
+                                        }else{
+                                            VStack{
+                                                Spacer()
+                                                ProgressView().padding()
+                                                Spacer()
+                                            }
                                         }
                                     }}
                             }
@@ -72,11 +82,11 @@ struct ContentView: View {
                             HStack{
                                 Button("Pick Image"){
                                     self.showImagePicker.toggle()
-                                }
+                                }.buttonStyle(.borderedProminent)
                                 if imageMark != nil {
                                     Button ("Share"){
                                         shareSheet(items: [imageMark!])
-                                    }
+                                    }.buttonStyle(.borderedProminent)
                                 }
                             }
                             Divider()
@@ -99,9 +109,17 @@ struct ContentView: View {
                                             self.imageMark=imageToSave
                                             self.model.showProcessing=false
                                             if model.saveToPhotos{
+                                                
+                                                
+                                                
                                                 saveImage()
+                                                
                                             }
                                         }
+                                        return
+                                    }
+                                    DispatchQueue.main.async {
+                                        self.imageMark=UIImage(systemName: "prohibit")
                                     }
                                 }
                             }
@@ -122,30 +140,30 @@ struct ContentView: View {
                     .background(Color(UIColor.systemBackground))
                     .onTapGesture {
                         withAnimation {
-                        self.showSetting=false
+                            self.showSetting=false
                         }
                     }
                     if self.showSetting{
                         SettingView(saveToPhotos: $model.saveToPhotos)
                             .frame(width: geometry.size.width/2,height: geometry.size.height)
-                                                        .transition(.move(edge: .leading))
+                            .transition(.move(edge: .leading))
                     }
                     
                 }
                 .gesture(drag)
                 
             }.navigationBarTitleDisplayMode(.inline)
-               .navigationTitle("Remove Water Mark")
-               .navigationBarItems(leading: (
-                   Button(action: {
-                       withAnimation {
-                           self.showSetting.toggle()
-                       }
-                   }) {
-                       Image(systemName: "line.horizontal.3")
-                           .imageScale(.large)
-                   }
-               ))
+                .navigationTitle("Remove Water Mark")
+                .navigationBarItems(leading: (
+                    Button(action: {
+                        withAnimation {
+                            self.showSetting.toggle()
+                        }
+                    }) {
+                        Image(systemName: "line.horizontal.3")
+                            .imageScale(.large)
+                    }
+                ))
             
         }}
     
@@ -157,7 +175,7 @@ struct ContentView: View {
     
     func startProcess(image:UIImage?){
         self.model.image = image
-        
+        self.imageMark = nil
         self.model.showRecaptcha.toggle()
         self.model.showProcessing.toggle()
     }
