@@ -142,7 +142,7 @@ struct ContentView: View {
                         withAnimation {
                             self.showSetting=false
                         }
-                    }
+                    }.blur(radius: self.showSetting ? 2 : 0)
                     if self.showSetting{
                         SettingView(saveToPhotos: $model.saveToPhotos)
                             .frame(width: geometry.size.width/2,height: geometry.size.height)
