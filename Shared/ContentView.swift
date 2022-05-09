@@ -10,11 +10,25 @@ import SwiftUI
 struct ContentView: View {
     @State var showImagePicker: Bool = false
     @State var showingSheet: Bool = false
-    @State var showToast: Bool = false
-    
-    @State var url: String = ""
-    @ObservedObject var model = CounterViewModel()
-    @State var imageMark: UIImage?
+ 
+    @EnvironmentObject var model : CounterViewModel
+   
+    @ViewBuilder var imageView : some View{
+        Image(uiImage: model.image!).resizable().aspectRatio(contentMode: .fit)
+        if model.imageMark != nil {
+            Image(uiImage: model.imageMark!).resizable().aspectRatio(contentMode: .fit)
+                .contextMenu{
+                    Button("Share") {
+                        self.showingSheet.toggle()
+                    }
+                    Button("Save") {
+                        model.saveImage()
+                    }
+                } .transition(.scale)
+        }else{
+                ProgressView().padding()
+        }
+    }
     var body: some View {
         
         SideSlideView(
@@ -29,47 +43,13 @@ struct ContentView: View {
                         if model.image != nil {
                             if (model.image?.size.height)! < (model.image?.size.width)!{
                                 VStack{
-                                    Image(uiImage: model.image!).resizable().aspectRatio(contentMode: .fit)
-                                    if imageMark != nil {
-                                        Image(uiImage: imageMark!).resizable().aspectRatio(contentMode: .fit)
-                                            .contextMenu{
-                                                Button("Share") {
-                                                    self.showingSheet.toggle()
-                                                }
-                                                Button("Save") {
-                                                    saveImage()
-                                                }
-                                            } .transition(.scale)
-                                    }else{
-                                        HStack{
-                                            Spacer()
-                                            ProgressView().padding()
-                                            Spacer()
-                                        }
-                                        
-                                    }
+                                    imageView
                                 }
                             }else{
                                 HStack{
-                                    Image(uiImage: model.image!).resizable().aspectRatio(contentMode: .fit)
-                                    if imageMark != nil {
-                                        Image(uiImage: imageMark!).resizable().aspectRatio(contentMode: .fit)
-                                            .contextMenu{
-                                                Button("Share") {
-                                                    self.showingSheet.toggle()
-                                                }
-                                                Button("Save") {
-                                                    saveImage()
-                                                }
-                                            }
-                                    }else{
-                                        VStack{
-                                            Spacer()
-                                            ProgressView().padding()
-                                            Spacer()
-                                        }
-                                    }
-                                }}
+                                    imageView
+                                }
+                            }
                         }
                         
                         Spacer()
@@ -78,9 +58,9 @@ struct ContentView: View {
                             Button("Pick Image"){
                                 self.showImagePicker.toggle()
                             }.buttonStyle(.borderedProminent)
-                            if imageMark != nil {
+                            if model.imageMark != nil {
                                 Button ("Share"){
-                                    shareSheet(items: [imageMark!])
+                                    shareSheet(items: [model.imageMark!])
                                 }.buttonStyle(.borderedProminent)
                             }
                         }
@@ -88,46 +68,22 @@ struct ContentView: View {
                     }
                     .sheet(isPresented: $model.showRecaptcha){
                         ReCaptchaView(){str in
-                            print(str)
                             DispatchQueue.main.async {
                                 self.model.showRecaptcha.toggle()
                             }
+                            model.req2RemoveWatermark(token: str)
                             
-                            uploadImage(token:str,paramName: "file", fileName: "test.png", image: self.model.image!){str  in
-                                self.url=str
-                                print(self.url)
-                                
-                                if let data = try? Data(contentsOf: URL(string:str)!)
-                                {
-                                    let imageToSave: UIImage! = UIImage(data: data)
-                                    DispatchQueue.main.async {
-                                        self.imageMark=imageToSave
-                                        self.model.showProcessing=false
-                                        if model.saveToPhotos{
-                                            
-                                            
-                                            
-                                            saveImage()
-                                            
-                                        }
-                                    }
-                                    return
-                                }
-                                DispatchQueue.main.async {
-                                    self.imageMark=UIImage(systemName: "prohibit")
-                                }
-                            }
                         }
                     }
                     .sheet(isPresented: $showImagePicker) {
                         ImagePickerView(sourceType: .photoLibrary) { image in
-                            startProcess(image: image)
+                            model.startProcess(image: image)
                         }
                     }
                     .sheet(isPresented: $showingSheet,
                            content: {
                         ActivityView(activityItems: [self.model.image!] as [Any], applicationActivities: nil) })
-                    .toast(message: "Image saved to gallery", isShowing: $showToast, duration: Toast.short)
+                    .toast(message: "Image saved to gallery", isShowing: $model.showToast, duration: Toast.short)
                 }
             }
         )
@@ -135,18 +91,9 @@ struct ContentView: View {
         
     }
     
-    private func saveImage(){
-        let imageSaver=ImageSaver()
-        imageSaver.writeToPhotoAlbum(image: self.imageMark!)
-        self.showToast.toggle()
-    }
+  
     
-    func startProcess(image:UIImage?){
-        self.model.image = image
-        self.imageMark = nil
-        self.model.showRecaptcha.toggle()
-        self.model.showProcessing.toggle()
-    }
+   
 }
 
 

@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct RemoverWaterMarkApp: App {
     var bodyView = ContentView()
+    var model = CounterViewModel()
     var body: some Scene {
         WindowGroup {
             bodyView
@@ -28,7 +29,7 @@ struct RemoverWaterMarkApp: App {
                     }
                     
                     
-                }
+                }.environmentObject(model)
         }
     }
     private func openURLImage(_ photoURL: URL?) {
@@ -41,7 +42,7 @@ struct RemoverWaterMarkApp: App {
                 
                 DispatchQueue.main.async {
                     let image = UIImage(data: imageData)
-                    bodyView.startProcess(image: image)
+                    model.startProcess(image: image)
                 }
                 
             }catch{
@@ -63,7 +64,7 @@ struct RemoverWaterMarkApp: App {
             DispatchQueue.main.async {
                 let image = UIImage(data: imageData)
                 
-                bodyView.startProcess(image: image)
+                model.startProcess(image: image)
             }
             
         }
