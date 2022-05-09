@@ -37,14 +37,17 @@ struct ContentView: View {
             VStack{
                 VStack{
                     if model.image != nil {
-                        if (model.image?.size.height)! < (model.image?.size.width)!{
-                            VStack{
-                                imageView
+                        GeometryReader(){ geometry in
+                            if ((model.image?.size.height)! / (model.image?.size.width)!) < geometry.size.height / geometry.size.width {
+                                VStack(){
+                                    imageView
+                                }.frame(width: geometry.size.width, height: nil, alignment: .center)
+                            }else{
+                                HStack{
+                                    imageView
+                                }.frame(width: nil, height: geometry.size.height, alignment: .center)
                             }
-                        }else{
-                            HStack{
-                                imageView
-                            }
+                            
                         }
                     }
                     
