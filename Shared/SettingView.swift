@@ -23,9 +23,7 @@ struct SettingView: View {
             Spacer()
             Divider().padding(.top,75)
         } .padding()
-            
             .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .leading)
-            .background(Color(UIColor.systemBackground))
             .edgesIgnoringSafeArea(.all)
     }
 }
