@@ -30,7 +30,7 @@ struct SideSlideView<Side,Content>: View where Side:View,Content:View {
                             }
                         }
                     }
-        return  NavigationView{
+        NavigationView{
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
                     content()
@@ -63,7 +63,7 @@ struct SideSlideView<Side,Content>: View where Side:View,Content:View {
                     }
                 ))
             
-        }
+        }.navigationViewStyle(.stack)
     }
 }
 

@@ -8,14 +8,10 @@
 import SwiftUI
 
 struct SettingView: View {
-    @Binding var saveToPhotos: Bool
+    @AppStorage("autoSave") var saveToPhotos:Bool=false
     var body: some View {
         HStack{
-            VStack(alignment: .leading){
-                Divider() .padding(.top,75)
-                Text("Setting")
-               
-                Divider()
+            Section("Settiing"){
                 Toggle("AutoSave", isOn:$saveToPhotos)
                 Spacer()
                 

@@ -51,7 +51,11 @@ func uploadImage(token:String,paramName: String, fileName: String, image: UIImag
                 let u=json["url"] as? String
                 let nu=u?.replacingOccurrences(of: "original", with: "wm.remove()")
                 callback(nu!)
+            }else{
+                callback("")
             }
+        }else{
+            callback("")
         }
     }).resume()
 }

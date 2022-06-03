@@ -13,32 +13,32 @@
 		330B627F2814F5D900AE9D81 /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B627E2814F5D900AE9D81 /* Tests_macOSLaunchTests.swift */; };
 		330B62802814F5D900AE9D81 /* RemoverWaterMarkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B62582814F5D800AE9D81 /* RemoverWaterMarkApp.swift */; };
 		330B62812814F5D900AE9D81 /* RemoverWaterMarkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B62582814F5D800AE9D81 /* RemoverWaterMarkApp.swift */; };
-		330B62822814F5D900AE9D81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B62592814F5D800AE9D81 /* ContentView.swift */; };
-		330B62832814F5D900AE9D81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B62592814F5D800AE9D81 /* ContentView.swift */; };
+		330B62822814F5D900AE9D81 /* RemoveWaterMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B62592814F5D800AE9D81 /* RemoveWaterMarkView.swift */; };
 		330B62842814F5D900AE9D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330B625A2814F5D900AE9D81 /* Assets.xcassets */; };
 		330B62852814F5D900AE9D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330B625A2814F5D900AE9D81 /* Assets.xcassets */; };
 		330B62952814F8D600AE9D81 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B62942814F8D600AE9D81 /* ImagePickerView.swift */; };
-		330B62962814F8D600AE9D81 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B62942814F8D600AE9D81 /* ImagePickerView.swift */; };
 		330B629828151E3400AE9D81 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B629728151E3400AE9D81 /* Request.swift */; };
 		330B629928151E3400AE9D81 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B629728151E3400AE9D81 /* Request.swift */; };
 		3345A85A2819372900AD25CE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3345A8592819372900AD25CE /* Launch Screen.storyboard */; };
 		3345A85C2819479100AD25CE /* UIImageForMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345A85B2819479100AD25CE /* UIImageForMacOS.swift */; };
 		3353E73C281714010001F12A /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353E73B281714000001F12A /* ShareView.swift */; };
-		3353E73D281714010001F12A /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353E73B281714000001F12A /* ShareView.swift */; };
 		336179412815433900221097 /* ReCAPTCHAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336179402815433900221097 /* ReCAPTCHAViewController.swift */; };
-		336179422815433900221097 /* ReCAPTCHAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336179402815433900221097 /* ReCAPTCHAViewController.swift */; };
 		336179442815438500221097 /* ReCAPTCHAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336179432815438500221097 /* ReCAPTCHAViewModel.swift */; };
 		336179452815438500221097 /* ReCAPTCHAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336179432815438500221097 /* ReCAPTCHAViewModel.swift */; };
 		336179472815453600221097 /* recaptcha.html in Resources */ = {isa = PBXBuildFile; fileRef = 336179462815451100221097 /* recaptcha.html */; };
 		33617949281549B400221097 /* ReCaptchaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33617948281549B400221097 /* ReCaptchaView.swift */; };
-		3361794A281549B400221097 /* ReCaptchaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33617948281549B400221097 /* ReCaptchaView.swift */; };
 		336179C52817F63A00221097 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336179AF2817F5D700221097 /* UniformTypeIdentifiers.framework */; };
 		336179C82817F63A00221097 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 336179C72817F63A00221097 /* Media.xcassets */; };
 		336179CA2817F63A00221097 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336179C92817F63A00221097 /* ActionViewController.swift */; };
 		336179CD2817F63A00221097 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336179CB2817F63A00221097 /* MainInterface.storyboard */; };
 		336179D12817F63A00221097 /* RemoveMark.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 336179C42817F63A00221097 /* RemoveMark.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		336FB254284A2CAB00D26B77 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336FB253284A2CAB00D26B77 /* ContentView.swift */; };
+		336FB256284A301500D26B77 /* AIPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336FB255284A301500D26B77 /* AIPersonView.swift */; };
+		336FB25C284A36D300D26B77 /* BaiduApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336FB25B284A36D300D26B77 /* BaiduApi.swift */; };
+		336FB25E284A5CA000D26B77 /* ApiProtolcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336FB25D284A5CA000D26B77 /* ApiProtolcol.swift */; };
 		339919C52818F17D003C33E8 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339919C42818F17D003C33E8 /* ContentViewModel.swift */; };
 		339919C62818F17D003C33E8 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339919C42818F17D003C33E8 /* ContentViewModel.swift */; };
+		33CBCC0328295C9A0068A38E /* SideSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBCC0228295C9A0068A38E /* SideSlideView.swift */; };
 		33D0A1BA281A5EF9001467EF /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0A1B9281A5EF9001467EF /* ToastView.swift */; };
 		33D0A1BC281A6A65001467EF /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D0A1BB281A6A65001467EF /* SettingView.swift */; };
 /* End PBXBuildFile section */
@@ -83,7 +83,7 @@
 
 /* Begin PBXFileReference section */
 		330B62582814F5D800AE9D81 /* RemoverWaterMarkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoverWaterMarkApp.swift; sourceTree = "<group>"; };
-		330B62592814F5D800AE9D81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		330B62592814F5D800AE9D81 /* RemoveWaterMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveWaterMarkView.swift; sourceTree = "<group>"; };
 		330B625A2814F5D900AE9D81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		330B625F2814F5D900AE9D81 /* RemoverWaterMark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoverWaterMark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		330B62652814F5D900AE9D81 /* RemoverWaterMark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoverWaterMark.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +112,12 @@
 		336179CE2817F63A00221097 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		336179D52818056400221097 /* RemoverWaterMark (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RemoverWaterMark (iOS).entitlements"; sourceTree = "<group>"; };
 		336179D62818059000221097 /* RemoveMark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RemoveMark.entitlements; sourceTree = "<group>"; };
+		336FB253284A2CAB00D26B77 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		336FB255284A301500D26B77 /* AIPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPersonView.swift; sourceTree = "<group>"; };
+		336FB25B284A36D300D26B77 /* BaiduApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaiduApi.swift; sourceTree = "<group>"; };
+		336FB25D284A5CA000D26B77 /* ApiProtolcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProtolcol.swift; sourceTree = "<group>"; };
 		339919C42818F17D003C33E8 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		33CBCC0228295C9A0068A38E /* SideSlideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideSlideView.swift; sourceTree = "<group>"; };
 		33D0A1B9281A5EF9001467EF /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		33D0A1BB281A6A65001467EF /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,20 +181,14 @@
 		330B62572814F5D800AE9D81 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				336FB25A284A339400D26B77 /* API */,
+				336FB259284A338A00D26B77 /* Extentions */,
+				336FB258284A338300D26B77 /* Model */,
+				336FB257284A337900D26B77 /* View */,
 				330B62582814F5D800AE9D81 /* RemoverWaterMarkApp.swift */,
-				330B62592814F5D800AE9D81 /* ContentView.swift */,
 				330B625A2814F5D900AE9D81 /* Assets.xcassets */,
-				330B62942814F8D600AE9D81 /* ImagePickerView.swift */,
-				330B629728151E3400AE9D81 /* Request.swift */,
-				336179402815433900221097 /* ReCAPTCHAViewController.swift */,
-				336179432815438500221097 /* ReCAPTCHAViewModel.swift */,
 				336179462815451100221097 /* recaptcha.html */,
-				33617948281549B400221097 /* ReCaptchaView.swift */,
-				3353E73B281714000001F12A /* ShareView.swift */,
-				339919C42818F17D003C33E8 /* ContentViewModel.swift */,
 				3345A85B2819479100AD25CE /* UIImageForMacOS.swift */,
-				33D0A1B9281A5EF9001467EF /* ToastView.swift */,
-				33D0A1BB281A6A65001467EF /* SettingView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -250,6 +249,49 @@
 				336179CE2817F63A00221097 /* Info.plist */,
 			);
 			path = RemoveMark;
+			sourceTree = "<group>";
+		};
+		336FB257284A337900D26B77 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				336FB253284A2CAB00D26B77 /* ContentView.swift */,
+				336FB255284A301500D26B77 /* AIPersonView.swift */,
+				33D0A1BB281A6A65001467EF /* SettingView.swift */,
+				336179402815433900221097 /* ReCAPTCHAViewController.swift */,
+				33617948281549B400221097 /* ReCaptchaView.swift */,
+				3353E73B281714000001F12A /* ShareView.swift */,
+				330B62942814F8D600AE9D81 /* ImagePickerView.swift */,
+				330B62592814F5D800AE9D81 /* RemoveWaterMarkView.swift */,
+				33CBCC0228295C9A0068A38E /* SideSlideView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		336FB258284A338300D26B77 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				339919C42818F17D003C33E8 /* ContentViewModel.swift */,
+				336179432815438500221097 /* ReCAPTCHAViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		336FB259284A338A00D26B77 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				33D0A1B9281A5EF9001467EF /* ToastView.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		336FB25A284A339400D26B77 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				330B629728151E3400AE9D81 /* Request.swift */,
+				336FB25B284A36D300D26B77 /* BaiduApi.swift */,
+				336FB25D284A5CA000D26B77 /* ApiProtolcol.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,7 +397,7 @@
 					New,
 				);
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					330B625E2814F5D900AE9D81 = {
 						CreatedOnToolsVersion = 13.3.1;
@@ -450,14 +492,19 @@
 				330B62952814F8D600AE9D81 /* ImagePickerView.swift in Sources */,
 				330B629828151E3400AE9D81 /* Request.swift in Sources */,
 				33617949281549B400221097 /* ReCaptchaView.swift in Sources */,
-				330B62822814F5D900AE9D81 /* ContentView.swift in Sources */,
+				33CBCC0328295C9A0068A38E /* SideSlideView.swift in Sources */,
+				330B62822814F5D900AE9D81 /* RemoveWaterMarkView.swift in Sources */,
+				336FB25E284A5CA000D26B77 /* ApiProtolcol.swift in Sources */,
+				336FB256284A301500D26B77 /* AIPersonView.swift in Sources */,
 				33D0A1BA281A5EF9001467EF /* ToastView.swift in Sources */,
 				339919C52818F17D003C33E8 /* ContentViewModel.swift in Sources */,
 				330B62802814F5D900AE9D81 /* RemoverWaterMarkApp.swift in Sources */,
 				336179442815438500221097 /* ReCAPTCHAViewModel.swift in Sources */,
 				3353E73C281714010001F12A /* ShareView.swift in Sources */,
+				336FB254284A2CAB00D26B77 /* ContentView.swift in Sources */,
 				336179412815433900221097 /* ReCAPTCHAViewController.swift in Sources */,
 				33D0A1BC281A6A65001467EF /* SettingView.swift in Sources */,
+				336FB25C284A36D300D26B77 /* BaiduApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,16 +512,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				330B62962814F8D600AE9D81 /* ImagePickerView.swift in Sources */,
 				330B629928151E3400AE9D81 /* Request.swift in Sources */,
-				3361794A281549B400221097 /* ReCaptchaView.swift in Sources */,
 				3345A85C2819479100AD25CE /* UIImageForMacOS.swift in Sources */,
-				330B62832814F5D900AE9D81 /* ContentView.swift in Sources */,
 				339919C62818F17D003C33E8 /* ContentViewModel.swift in Sources */,
 				330B62812814F5D900AE9D81 /* RemoverWaterMarkApp.swift in Sources */,
 				336179452815438500221097 /* ReCAPTCHAViewModel.swift in Sources */,
-				3353E73D281714010001F12A /* ShareView.swift in Sources */,
-				336179422815433900221097 /* ReCAPTCHAViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,6 +766,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -750,6 +793,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
