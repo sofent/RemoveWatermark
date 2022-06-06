@@ -63,7 +63,7 @@ class ActionViewController: UIViewController {
         let selector = #selector(openURL(_:))
         while responder != nil {
             if responder!.responds(to: selector) && responder != self {
-                responder!.perform(selector, with: URL(string: "sremovemk://"+url.urlEncoded!)!)
+                responder!.perform(selector, with: URL(string: "sremovemk://rm?"+url.urlEncoded!)!)
                 return
             }
             responder = responder?.next

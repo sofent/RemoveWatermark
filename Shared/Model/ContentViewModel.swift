@@ -48,4 +48,42 @@ final class CounterViewModel: ObservableObject {
         self.showToast=true
     }
    
+    
+    func openURLImage(_ photoURL: URL?) {
+        
+        let imageURL = photoURL
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            do{
+                let imageData: Data = try Data(contentsOf: imageURL!)
+                
+                DispatchQueue.main.async {
+                    let image = UIImage(data: imageData)
+                    self.startProcess(image: image)
+                }
+                
+            }catch{
+                print("Unable to load data: \(error)")
+            }
+        }}
+    
+    func fetchImage(_ photoURL: String?) {
+        
+        guard let imageURL = photoURL else { return  }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let defaults = UserDefaults(suiteName: "group.or.sofent.RemoverWaterMark")
+            defaults!.synchronize()
+            let d = defaults!.data(forKey: imageURL)
+            defaults?.removeObject(forKey: imageURL)
+            let imageData: Data = d!
+            
+            DispatchQueue.main.async {
+                let image = UIImage(data: imageData)
+                
+                self.startProcess(image: image)
+            }
+            
+        }
+    }
 }
