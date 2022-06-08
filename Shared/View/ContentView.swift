@@ -70,7 +70,7 @@ struct ContentView: View {
                 case "rm":
                     activeTab = 0
                     removeWater.fetchImage(imageUrl)
-                case "baidu":
+                case "ai":
                     activeTab = 1
                     baidu.fetchImage(imageUrl)
                 default:

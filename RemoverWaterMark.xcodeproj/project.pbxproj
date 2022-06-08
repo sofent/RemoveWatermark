@@ -19,6 +19,7 @@
 		330B62952814F8D600AE9D81 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B62942814F8D600AE9D81 /* ImagePickerView.swift */; };
 		330B629828151E3400AE9D81 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B629728151E3400AE9D81 /* Request.swift */; };
 		330B629928151E3400AE9D81 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B629728151E3400AE9D81 /* Request.swift */; };
+		330BB79728503CBB00633602 /* MSVoiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330BB79628503CBB00633602 /* MSVoiceAPI.swift */; };
 		3345A85A2819372900AD25CE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3345A8592819372900AD25CE /* Launch Screen.storyboard */; };
 		3345A85C2819479100AD25CE /* UIImageForMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3345A85B2819479100AD25CE /* UIImageForMacOS.swift */; };
 		3353E73C281714010001F12A /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353E73B281714000001F12A /* ShareView.swift */; };
@@ -30,7 +31,6 @@
 		336179C52817F63A00221097 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336179AF2817F5D700221097 /* UniformTypeIdentifiers.framework */; };
 		336179C82817F63A00221097 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 336179C72817F63A00221097 /* Media.xcassets */; };
 		336179CA2817F63A00221097 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336179C92817F63A00221097 /* ActionViewController.swift */; };
-		336179CD2817F63A00221097 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336179CB2817F63A00221097 /* MainInterface.storyboard */; };
 		336179D12817F63A00221097 /* RemoveMark.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 336179C42817F63A00221097 /* RemoveMark.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		336FB254284A2CAB00D26B77 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336FB253284A2CAB00D26B77 /* ContentView.swift */; };
 		336FB256284A301500D26B77 /* AIPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336FB255284A301500D26B77 /* AIPersonView.swift */; };
@@ -96,6 +96,7 @@
 		330B627E2814F5D900AE9D81 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		330B62942814F8D600AE9D81 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		330B629728151E3400AE9D81 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		330BB79628503CBB00633602 /* MSVoiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSVoiceAPI.swift; sourceTree = "<group>"; };
 		3345A8592819372900AD25CE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		3345A85B2819479100AD25CE /* UIImageForMacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageForMacOS.swift; sourceTree = "<group>"; };
 		3353E73B281714000001F12A /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
@@ -108,7 +109,6 @@
 		336179C42817F63A00221097 /* RemoveMark.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RemoveMark.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		336179C72817F63A00221097 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		336179C92817F63A00221097 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
-		336179CC2817F63A00221097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		336179CE2817F63A00221097 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		336179D52818056400221097 /* RemoverWaterMark (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RemoverWaterMark (iOS).entitlements"; sourceTree = "<group>"; };
 		336179D62818059000221097 /* RemoveMark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RemoveMark.entitlements; sourceTree = "<group>"; };
@@ -245,7 +245,6 @@
 				336179D62818059000221097 /* RemoveMark.entitlements */,
 				336179C72817F63A00221097 /* Media.xcassets */,
 				336179C92817F63A00221097 /* ActionViewController.swift */,
-				336179CB2817F63A00221097 /* MainInterface.storyboard */,
 				336179CE2817F63A00221097 /* Info.plist */,
 			);
 			path = RemoveMark;
@@ -290,6 +289,7 @@
 				330B629728151E3400AE9D81 /* Request.swift */,
 				336FB25B284A36D300D26B77 /* BaiduApi.swift */,
 				336FB25D284A5CA000D26B77 /* ApiProtolcol.swift */,
+				330BB79628503CBB00633602 /* MSVoiceAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -478,7 +478,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				336179C82817F63A00221097 /* Media.xcassets in Resources */,
-				336179CD2817F63A00221097 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +492,7 @@
 				330B629828151E3400AE9D81 /* Request.swift in Sources */,
 				33617949281549B400221097 /* ReCaptchaView.swift in Sources */,
 				33CBCC0328295C9A0068A38E /* SideSlideView.swift in Sources */,
+				330BB79728503CBB00633602 /* MSVoiceAPI.swift in Sources */,
 				330B62822814F5D900AE9D81 /* RemoveWaterMarkView.swift in Sources */,
 				336FB25E284A5CA000D26B77 /* ApiProtolcol.swift in Sources */,
 				336FB256284A301500D26B77 /* AIPersonView.swift in Sources */,
@@ -565,17 +565,6 @@
 			targetProxy = 336179CF2817F63A00221097 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		336179CB2817F63A00221097 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				336179CC2817F63A00221097 /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		330B62862814F5D900AE9D81 /* Debug */ = {

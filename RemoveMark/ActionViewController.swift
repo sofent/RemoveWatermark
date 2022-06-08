@@ -8,13 +8,14 @@
 import UIKit
 import MobileCoreServices
 import UniformTypeIdentifiers
+import SwiftUI
 
+@objc(ActionViewController)
 class ActionViewController: UIViewController {
-
-
+    var imageURLStr:String = ""
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        var imageFound = false
+       var imageFound = false
         for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
             for provider in item.attachments! {
                 if provider.hasItemConformingToTypeIdentifier(UTType.image.identifier) {
@@ -32,9 +33,7 @@ class ActionViewController: UIViewController {
                                 }catch{
                                         print("Unable to load data: \(error)")
                                 }
-                                DispatchQueue.main.async {
-                                    self.openContainerApp(imageURL.absoluteString)
-                                }
+                                self.imageURLStr = imageURL.absoluteString
                             }
                             
                         }
@@ -50,7 +49,9 @@ class ActionViewController: UIViewController {
                 break
             }
         }
-        self.done()
+        if !imageFound {
+            done()
+        }
     }
     // For skip compile error.
     @objc func openURL(_ url: URL) {
@@ -58,12 +59,12 @@ class ActionViewController: UIViewController {
     }
 
     
-    func openContainerApp(_ url:String) {
+    func openContainerApp(_ url:String,type:String) {
         var responder: UIResponder? = self as UIResponder
         let selector = #selector(openURL(_:))
         while responder != nil {
             if responder!.responds(to: selector) && responder != self {
-                responder!.perform(selector, with: URL(string: "sremovemk://rm?"+url.urlEncoded!)!)
+                responder!.perform(selector, with: URL(string: "sremovemk://\(type)?"+url.urlEncoded!)!)
                 return
             }
             responder = responder?.next
@@ -71,9 +72,18 @@ class ActionViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        // Get the item[s] we're handling from the extension context.
         
+        let child = UIHostingController(rootView: ContentView{ str in
+                self.openContainerApp(self.imageURLStr,type: str)
+                self.done()
+        })
+        child.view.translatesAutoresizingMaskIntoConstraints = false
+        let bounds = self.view.bounds
+        child.view.frame = CGRect(origin: CGPoint(x: 0, y: bounds.height/3*2), size: CGSize(width: bounds.width, height: bounds.height/3))
+        // First, add the view of the child to the view of the parent
+        self.view.addSubview(child.view)
+        // Then, add the child to the parent
+        self.addChild(child)
         // For example, look for an image and place it into an image view.
         // Replace this with something appropriate for the type[s] your extension supports.
         
@@ -85,6 +95,37 @@ class ActionViewController: UIViewController {
         self.extensionContext!.completeRequest(returningItems: self.extensionContext!.inputItems, completionHandler: nil)
     }
 
+}
+
+struct ContentView : View {
+    var done:(String)->Void
+    var body: some View {
+        HStack {
+            Spacer()
+            VStack {
+                Image(systemName: "bookmark.slash.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50,height: 50)
+                    
+                Text("RemoveWater")
+            }
+            .onTapGesture {
+                done("rm")
+            }
+            Spacer()
+            VStack {
+                Image(systemName: "person.fill.questionmark")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50,height: 50)
+                Text("AIPerson")
+            }.onTapGesture {
+                done("ai")
+            }
+            Spacer()
+        }
+    }
 }
 
 extension String {
