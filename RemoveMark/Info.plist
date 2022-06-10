@@ -7,7 +7,23 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>NSExtensionActivationRule</key>
-			<string>TRUEPREDICATE</string>
+            <string>SUBQUERY (
+                        extensionItems,
+                        $extensionItem,
+                        SUBQUERY (
+                        $extensionItem.attachments,
+                        $attachment,
+                        (
+                        ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.image"
+                        || ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.png"
+                        || ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.jpeg"
+                        || ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.jpeg-2000"
+                        || ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "com.compuserve.gif"
+                        || ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "com.microsoft.bmp"
+                        )
+                        ).@count == 1
+                        ).@count == 1
+                    </string>
 			<key>NSExtensionServiceAllowsFinderPreviewItem</key>
 			<true/>
 			<key>NSExtensionServiceAllowsTouchBarItem</key>

@@ -78,6 +78,12 @@ struct RemoveWatermarkView: View {
                        content: {
                     ActivityView(activityItems: [self.model.image!] as [Any], applicationActivities: nil) })
                 .toast(message: "Image saved to gallery", isShowing: $model.showToast, duration: Toast.short)
+            }.overlay{
+                if model.image == nil {
+                    Button("Pick Image to start"){
+                        self.showImagePicker.toggle()
+                    }.buttonStyle(.bordered)
+                }
             }
         
     }
@@ -89,6 +95,6 @@ struct RemoveWatermarkView: View {
 
 struct RemoveWatermarkView_Previews: PreviewProvider {
     static var previews: some View {
-        RemoveWatermarkView()
+        RemoveWatermarkView().environmentObject(CounterViewModel(api: BaiduApiRequest()))
     }
 }

@@ -10,8 +10,8 @@ import SwiftUI
 struct SettingView: View {
     @AppStorage("autoSave") var saveToPhotos:Bool=false
     var body: some View {
-        HStack{
-            Section("Settiing"){
+        VStack{
+            Section("Save Settiing"){
                 Toggle("AutoSave", isOn:$saveToPhotos)
                 Spacer()
                 
@@ -20,6 +20,5 @@ struct SettingView: View {
             Divider().padding(.top,75)
         } .padding()
             .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .leading)
-            .edgesIgnoringSafeArea(.all)
     }
 }
