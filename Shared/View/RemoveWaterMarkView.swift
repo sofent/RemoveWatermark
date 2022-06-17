@@ -88,6 +88,17 @@ struct RemoveWatermarkView: View {
         
     }
     
+    func shareSheet(items: [Any]) {
+        let activityView = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        
+        let allScenes = UIApplication.shared.connectedScenes
+        let scene = allScenes.first { $0.activationState == .foregroundActive }
+        
+        if let windowScene = scene as? UIWindowScene {
+            windowScene.keyWindow?.rootViewController?.present(activityView, animated: true, completion: nil)
+        }
+        
+    }
     
 }
 
