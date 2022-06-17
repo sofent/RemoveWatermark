@@ -70,20 +70,7 @@ class ImageSaver: NSObject {
     }
 }
 
-extension UIImage {
-    public func resized(to target: CGSize) -> UIImage {
-        let ratio = min(
-            target.height / size.height, target.width / size.width
-        )
-        let new = CGSize(
-            width: size.width * ratio/UIScreen.main.scale, height: size.height * ratio/UIScreen.main.scale
-        )
-        let renderer = UIGraphicsImageRenderer(size: new)
-        return renderer.image { _ in
-            self.draw(in: CGRect(origin: .zero, size: new))
-        }
-    }
-}
+
 
 private extension Data {
     mutating func addFilePart(boundary: String, name: String, filename: String, contentType: String, data: Data) {
