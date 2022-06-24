@@ -14,9 +14,11 @@ extension UIImage {
             target.height / size.height, target.width / size.width
         )
         let new = CGSize(
-            width: size.width * ratio/UIScreen.main.scale, height: size.height * ratio/UIScreen.main.scale
+            width: size.width * ratio, height: size.height * ratio
         )
-        let renderer = UIGraphicsImageRenderer(size: new)
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
+        let renderer = UIGraphicsImageRenderer(size: new,format: format)
         return renderer.image { _ in
             self.draw(in: CGRect(origin: .zero, size: new))
         }
