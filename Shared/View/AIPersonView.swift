@@ -42,9 +42,9 @@ struct AIPersonView: View {
         self.image = image
         Task.init {
             let token = await getAccessToken()
-            getResponseText(image,token: token){ forgroundImage in
-                self.personImage = forgroundImage
-            }
+            let forgroundImage = await getResponseText(image,token: token)
+            self.personImage = forgroundImage
+            
         }
         
     }

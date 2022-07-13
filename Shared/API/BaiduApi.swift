@@ -44,11 +44,10 @@ func getAccessToken() async ->String {
     return accessToken
 }
 
-func getResponseText(_ image:UIImage,token :String,callback :@escaping (UIImage?)->Void){
+func getResponseText(_ image:UIImage,token :String)async -> UIImage? {
     let host = "https://aip.baidubce.com/rest/2.0/image-classify/v1/body_seg?access_token=\(token)"
     guard let url = URL(string: host) else {
-        callback(nil)
-        return
+       return nil
     }
     let session = URLSession.shared
     var req = URLRequest(url: url)
@@ -56,8 +55,7 @@ func getResponseText(_ image:UIImage,token :String,callback :@escaping (UIImage?
     req.setValue("application/json", forHTTPHeaderField: "Accept")
     req.httpMethod = "POST"
     guard let baseData = image.jpegData(compressionQuality: 0.5)?.base64EncodedString() else{
-        callback(nil)
-        return
+       return nil
     }
     print(baseData.count/1024)
     //print(baseData)
@@ -66,21 +64,22 @@ func getResponseText(_ image:UIImage,token :String,callback :@escaping (UIImage?
     data.append(baseData.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!.data(using: .utf8)!)
     print(data.prefix(50).base64EncodedString())
     req.httpBody = data
-    session.dataTask(with: req, completionHandler: { responseData, response, error in
-        if error == nil {
-            let jsonData = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments)
-            if let json = jsonData as? [String: Any] {
-                guard let forground = json["foreground"] as? String else {
-                    print(json)
-                    callback(nil)
-                    return
-                }
-                let forgroundImage = UIImage(data: Data(base64Encoded: forground) ?? Data())
-                callback(forgroundImage)
-            }
-        }else {
-            print(error ?? "no error")
-            callback(nil)
+    do{
+        let (responseData, response) = try await session.data(for: req)
+        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200{
+            return nil
         }
-    }).resume()
+        let jsonData = try? JSONSerialization.jsonObject(with: responseData, options: .allowFragments)
+        if let json = jsonData as? [String: Any] {
+            guard let forground = json["foreground"] as? String else {
+                print(json)
+               return nil
+            }
+            let forgroundImage = UIImage(data: Data(base64Encoded: forground) ?? Data())
+            return forgroundImage
+        }
+    }catch{
+        print(error)
+    }
+    return nil
 }

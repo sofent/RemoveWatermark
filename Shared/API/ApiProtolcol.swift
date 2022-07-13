@@ -26,12 +26,7 @@ class BaiduApiRequest:ApiRequest{
     
     func doRequest(image: UIImage) async -> UIImage? {
         let token = await getAccessToken()
-        return await withCheckedContinuation { con in
-            getResponseText(image, token: token){ image in
-                con.resume(returning: image)
-            }
-        }
-       
+        return await getResponseText(image, token: token)
     }
     
 }
