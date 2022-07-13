@@ -56,29 +56,21 @@ class RemoveWatermarkApiRequest:ApiRequest{
     
     func doRequest(image: UIImage) async -> UIImage? {
         let token = await getToken()
-        return await withCheckedContinuation { con in
-            uploadImage(token:token,paramName: "file", fileName: "test.png", image: image){str  in
-                print("result url is ",str)
-                DispatchQueue.main.async {
-                    let data :Data?
-                    do{
-                        data = try Data(contentsOf: URL(string:str)!)
-                    }
-                    catch{
-                        print(error)
-                        data = nil
-                    }
-                    if let data = data
-                    {
-                        let imageToSave: UIImage! = UIImage(data: data)
-                        print("get image ",imageToSave)
-                        con.resume(returning: imageToSave)
-                    }else{
-                        con.resume(returning: nil)
-                    }
-                }
+        let str = await uploadImage(token:token,paramName: "file", fileName: "test.png", image: image)
+        do{
+            let (data,response) = try await URLSession.shared.data(from:  URL(string:str)!)
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200
+            {
+                let imageToSave: UIImage! = UIImage(data: data)
+                print("get image ",imageToSave)
+                return imageToSave
+            }else{
+                return nil
             }
+        }catch{
+            print(error)
         }
+        return nil
        
     }
     

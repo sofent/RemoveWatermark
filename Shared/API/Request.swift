@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-func uploadImage(token:String,paramName: String, fileName: String, image: UIImage,callback: @escaping (String)->Void) {
+func uploadImage(token:String,paramName: String, fileName: String, image: UIImage) async ->String {
     let url = URL(string: "https://api.pixelbin.io/service/panel/assets/v1.0/upload/direct")
     
     // generate boundary string using a unique per-app string
@@ -43,21 +43,26 @@ func uploadImage(token:String,paramName: String, fileName: String, image: UIImag
     data.addParamPart(boundary: boundary, name: "path", value: "__editor/2022-04-24")
     data.addMultiPartEnd(boundary: boundary)
     // Send a POST request to the URL, with the data we created earlier
-    session.uploadTask(with: urlRequest, from: data, completionHandler: { responseData, response, error in
-        if error == nil {
-            let jsonData = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments)
-            if let json = jsonData as? [String: Any] {
-                print(json)
-                let u=json["url"] as? String
-                let nu=u?.replacingOccurrences(of: "original", with: "wm.remove()")
-                callback(nu!)
-            }else{
-                callback("")
-            }
-        }else{
-            callback("")
+    urlRequest.httpBody = data
+    do{
+        let  (responseData, response) = try await session.data(for: urlRequest)
+        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+            return ""
         }
-    }).resume()
+        let jsonData = try? JSONSerialization.jsonObject(with: responseData, options: .allowFragments)
+        if let json = jsonData as? [String: Any] {
+            print(json)
+            let u=json["url"] as? String
+            let nu=u?.replacingOccurrences(of: "original", with: "wm.remove()")
+             return nu!
+        }else{
+            return ""
+        }
+    }
+    catch{
+        print(error)
+    }
+    return ""
 }
 
 class ImageSaver: NSObject {
